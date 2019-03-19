@@ -1,0 +1,418 @@
+@import url(./basic.css);
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+}
+
+#user_list {
+  width: var(--user-list-width);
+  overflow: auto;
+  min-height: calc(100vh - var(--std-height));
+  max-width: var(--user-list-max-width);
+  border-right: 1px solid var(--light-gray);
+}
+
+.default_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.default_list span {
+  margin: 20px 0;
+  color: var(--dark-gray);
+  font-size: 13px;
+}
+
+#user_list::-webkit-scrollbar {
+  display: none;
+}
+
+.avatar {
+  user-select: none;
+  width: var(--std-height);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px -3px var(--shadow-color);
+  background-color: white;
+}
+
+.info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  padding-left: 5px;
+}
+
+#self_info {
+  background-color: var(--green);
+  color: white;
+  -webkit-app-region: no-drag;
+  height: calc(0.8 * var(--std-height));
+  width: var(--user-list-width);
+  max-width: var(--user-list-max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 40px -2px var(--shadow-color);
+}
+
+.name {
+  font-weight: bold;
+}
+
+#self_info .name {
+  font-size: 14px;
+}
+
+#self_info .ip {
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.others .name {
+  font-size: 13px;
+}
+
+.others .ip {
+  margin-top: 6px;
+}
+
+.ip, .time {
+  font-size: 12px;
+}
+
+.time {
+  margin-right: 10px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#self_info, .others, button {
+  cursor: pointer;
+}
+
+.others {
+  height: var(--std-height);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.others:hover {
+  background-color: var(--green);
+  color: white;
+}
+
+.others .info div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+#chat_part {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#top_bar {
+  -webkit-app-region: drag;
+  width: 100%;
+  height: calc(0.8 * var(--std-height));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+#cur_user_name {
+  color: var(--green);
+  font-weight: bold;
+  flex: 1;
+  margin-left: 15px;
+  text-align: center;
+}
+
+#window_btns {
+  display: flex;
+  align-items: center;
+  margin-right: 3px;
+}
+
+#minimize, #maximize, #close {
+  -webkit-app-region: no-drag;
+  margin: 5px;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  border-radius: 50%;
+}
+
+#maximize {
+  color: rgb(70, 128, 255);
+}
+
+#minimize {
+  color: rgb(254, 182, 77);
+}
+
+#close {
+  color: rgb(252, 98, 128);
+}
+
+#minimize:hover {
+  color: white;
+  background-color: rgb(254, 182, 77);
+}
+
+#maximize:hover {
+  color: white;
+  background-color: rgb(70, 128, 255);
+} 
+
+#close:hover {
+  color: white;
+  background-color: rgb(252, 98, 128);
+}
+
+#chat_window {
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  user-select: text;
+  background-image: url(../img/bg.png);
+  background-position: center;
+  box-shadow: 0 0 15px -5px inset;
+}
+
+.others_msg,
+.self_msg {
+  display: flex;
+  align-items: flex-start;
+  margin: 50px 10px;
+}
+
+.others_msg_box {
+  border-radius: 0 15px 15px 15px;
+  border: 1px solid var(--light-gray);
+  background-color: white;
+}
+
+.self_msg {
+  justify-content: flex-end;
+}
+
+.self_msg_box {
+  border-radius: 15px 0 15px 15px;
+  background-color: var(--green);
+  color: white;
+}
+
+.self_msg_box button {
+  color: white;
+}
+
+.others_msg_box,
+.self_msg_box {
+  white-space: pre-wrap;
+  margin-top: 13px;
+  /* max-width: 60%; */
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5em;
+  box-shadow: 0 5px 20px -5px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg_img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+#type_bar {
+  height: calc(0.8 * var(--std-height));
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--light-gray);
+}
+
+textarea:disabled {
+  background-color: white;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+#share_btn, #send_btn {
+  height: 100%;
+  width: var(--type-bar-height);
+  font-size: 25px;
+  color: var(--dark-gray);
+}
+
+#share_btn {
+  border-right: 1px solid var(--light-gray);
+}
+
+#share_btn i {
+  display: block;
+  transform: rotate(-135deg);
+}
+
+#send_btn {
+  border-left: 1px solid var(--light-gray);
+}
+
+#share_btn img, #send_btn img {
+  height: 60%;
+}
+
+#type_input {
+  flex: 1;
+  border: 0;
+  display: block;
+  outline: none;
+  height: 100%;
+  font-size: 15px;
+  padding: 5px;
+  resize: none;
+}
+
+.board {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.board h1 {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.board h2 {
+  font-size: 20px;
+  color: var(--light-green);
+}
+
+.board h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.board .half-trans-bg {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  color: var(--green);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 5px 30px -5px var(--shadow-color);
+}
+
+.file {
+  white-space: normal;
+  display: flex;
+  align-items: center;
+}
+
+.file .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file .roundBtn {
+  border-radius: 50%;
+  height: 43px;
+  width: 43px;
+  background-color: #02C385;
+  color: white;
+  font-size: 13px;
+}
+
+.self_msg_box .roundBtn {
+  border: 2px solid white;
+}
+
+.file .roundBtn i {
+  font-size: 20px;
+}
+
+.file .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 3px 0 10px;
+}
+
+.file .right button {
+  margin-left: 10px;
+}
+
+.file .content {
+  margin: 2px 0;
+  font-size: 11.5px;
+}
+
+.file .file_name {
+  font-weight: bold;
+  font-size: 13.5px;
+}
+
+.file .right div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.file .right button {
+  font-size: 11.5px;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg) }
+  to{ transform: rotate(360deg) }
+}
+
+.roll {
+  animation: 1s linear 0s normal none infinite rotate;
+}

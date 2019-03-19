@@ -1,0 +1,19 @@
+{
+  "name": "lantool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-random-string": "^1.0.0",
+    "filesize": "^3.6.1",
+    "hex-array": "^1.0.0",
+    "highlight.js": "^9.12.0",
+    "internal-ip": "^3.0.1",
+    "progress-stream": "^2.0.0"
+  }
+}

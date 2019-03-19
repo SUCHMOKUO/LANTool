@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Create New User</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/createNewUser.css">
+</head>
+<body>
+  <h1>请输入昵称并选择用户头像</h1>
+  <input type="text" id="name" placeholder="输入昵称">
+  <div class="avatars">
+    <button onclick="selectAvatar(0)">
+      <img src="./img/bird.png">
+    </button>
+    <button onclick="selectAvatar(1)">
+      <img src="./img/cat.png">
+    </button>
+    <button onclick="selectAvatar(2)">
+      <img src="./img/chick.png">
+    </button>
+    <button onclick="selectAvatar(3)">
+      <img src="./img/godzilla.png">
+    </button>
+    <button onclick="selectAvatar(4)">
+      <img src="./img/kitty.png">
+    </button>
+    <button onclick="selectAvatar(5)">
+      <img src="./img/owl.png">
+    </button>
+    <button onclick="selectAvatar(6)">
+      <img src="./img/snails.png">
+    </button>
+    <button onclick="selectAvatar(7)">
+      <img src="./img/sun.png">
+    </button>
+  </div>
+
+  <button id="confirm" onclick="submit()">Let's GO!</button>
+
+
+<script>
+  const { ipcRenderer } = require("electron");
+  const name = document.querySelector("#name");
+  const selfInfo = {
+    name: null,
+    avatar: null
+  };
+
+  function selectAvatar(id) {
+    selfInfo.avatar = id;
+  }
+
+  function submit() {
+    selfInfo.name = name.value;
+    ipcRenderer.send("new-user-creation-done", selfInfo);
+  }
+</script>
+</body>
+</html>

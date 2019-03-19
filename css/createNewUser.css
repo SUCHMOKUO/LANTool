@@ -1,0 +1,90 @@
+@import url(./basic.css);
+
+body {
+  background: linear-gradient(to right top, var(--green), var(--light-green));
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+#name {
+  outline: none;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid white;
+  height: 40px;
+  margin: 10px 0;
+}
+
+#name::-webkit-input-placeholder {
+  font-size: 15px;
+  font-weight: normal;
+  color: var(--light-gray);
+}
+
+.avatars {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatars button {
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+  border-radius: 50%;
+  transition: background-color var(--trans-time),
+              box-shadow var(--trans-time);
+}
+
+.avatars button:hover,
+.avatars button:focus {
+  background-color: white;
+  box-shadow: 0 10px 20px -5px var(--shadow-color);
+}
+
+button {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button img {
+  width: 100%;
+  height: 100%;
+  padding: 15%;
+}
+
+#confirm {
+  width: 120px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: background-color var(--trans-time),
+              box-shadow var(--trans-time),
+              color var(--trans-time);
+}
+
+#confirm:hover {
+  background-color: white;
+  color: var(--green);
+  box-shadow: 0 10px 20px -5px var(--shadow-color);
+}
